@@ -28,9 +28,7 @@ class Cult
     end
 
     def followers_names_list 
-        names_array=[]
-        followers.each do |inst| names_array << inst.name end 
-        names_array
+        followers.map do |inst| inst.name end 
     end 
 
     
@@ -40,7 +38,7 @@ class Cult
         elsif followers.include?(follower)
             "The follower is already in the cult."
         else  
-            followers_names_list << follower 
+            followers << follower 
         end 
     end 
 
