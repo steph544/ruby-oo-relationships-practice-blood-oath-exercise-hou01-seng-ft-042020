@@ -49,4 +49,9 @@ class Follower
     def self.top_ten 
         self.all.max(10) do |inst| inst.cult_count end 
     end 
+
+    def fellow_cult_members
+        list = self.cults.map do |inst| inst.followers_names_list end 
+        list.flatten.reject do |inst| inst == self.name end 
+    end 
 end 

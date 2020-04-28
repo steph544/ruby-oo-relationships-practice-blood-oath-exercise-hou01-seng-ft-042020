@@ -4,9 +4,9 @@ def reload
   load 'config/environment.rb'
 end
 
-c1=Cult.new(name: "Demon", location: "Houston", founding_year: 1988, slogan: "Devils 24/7")
-c2=Cult.new(name: "John Smith", location: "Oklahoma", founding_year: 1950, slogan: "Follow me")
-c3=Cult.new(name: "Cheney", location: "Conroe", founding_year: 1880, slogan: "Cheneys Rule")
+c1=Cult.new(name: "Demon", location: "Houston", founding_year: 1988, slogan: "Devils 24/7", min_age: 10)
+c2=Cult.new(name: "John Smith", location: "Oklahoma", founding_year: 1950, slogan: "Follow me", min_age: 6)
+c3=Cult.new(name: "Cheney", location: "Conroe", founding_year: 1880, slogan: "Cheneys Rule", min_age: 15)
 
 f1=Follower.new(name:"Mark", age:42, life_motto:"Life is good")
 f2=Follower.new(name:"Stephanie", age:38, life_motto:"I don't like to follow people")
@@ -30,7 +30,7 @@ b6=Blood_oath.new(cult: c1, follower: f6, initiation_date:"1990-08-02")
 b7=Blood_oath.new(cult: c2, follower: f7, initiation_date:"1450-05-03")
 b8=Blood_oath.new(cult: c2, follower: f8, initiation_date:"1470-09-27")
 b9=Blood_oath.new(cult: c2, follower: f9, initiation_date:"1840-07-21")
-b10=Blood_oath.new(cult: c2, follower: f9, initiation_date:"1980-08-24")
+b10=Blood_oath.new(cult: c3, follower: f9, initiation_date:"1980-08-24")
 b11=Blood_oath.new(cult: c2, follower: f10, initiation_date:"1450-01-03")
 
 binding.pry
