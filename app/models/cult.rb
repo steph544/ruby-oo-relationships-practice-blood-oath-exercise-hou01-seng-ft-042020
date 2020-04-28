@@ -22,20 +22,23 @@ class Cult
         end 
     end 
 
-    def followers 
+    def followers
+     blood_oaths_taken.map do |inst| inst.follower end  
+    end
+
+    def followers_names_list 
         names_array=[]
-        names_list = blood_oaths_taken.map do |inst| inst.follower end  
-            names_list.each do |inst| names_array << inst.name end 
+        followers.each do |inst| names_array << inst.name end 
         names_array
     end 
 
     
     def recruit_follower(follower)
-        followers << follower 
+        followers_names_list << follower 
     end 
 
     def cult_population
-        followers.count 
+        self.followers_names_list.count 
     end 
 
     def self.find_by_name(name) 
@@ -51,5 +54,19 @@ class Cult
     def self.find_by_founding_year(year)
         self.all.select do |inst| inst.founding_year == year
         end 
+    end 
+
+    def average_age
+        total=0
+        self.followers.map do |inst| total += inst.age end 
+        total/self.cult_population
+    end 
+
+    def my_followers_mottos
+        followers.each do |inst| puts inst.life_motto end 
+    end 
+
+    def self.least_popular
+        self.all.min_by do |inst| inst.cult_population end 
     end 
 end 
